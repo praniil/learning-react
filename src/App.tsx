@@ -1,25 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PhotoArray from './photosArray';
+import DisplayData from './displayData';
+import RespondingToEvents from './RespondingToEvents';
+import Props from './Props';
+import Hooks from './Hooks';
+import Todos from './todos';
+
 
 function App() {
+//   let content;
+//   const[isLoggedIn, setisLoggedIn] = useState(true);
+//   if (isLoggedIn) {
+//     content = <PhotoArray />
+//   } else {
+//     content = <DisplayData />
+//   }
+
+//   // interface userDetails {
+//   //   name : string;
+//   //   job : string;
+//   // }
+
+//   const UserObj = {
+//     name : "Ram",
+//     job : "developer"
+//   }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* {content}
+      <RespondingToEvents />
+      {/* <Props 
+        name = "Apple"
+        description = "i love apple"
+      /> */}
+
+      {/* <Props name = {UserObj.name}
+      job = {UserObj.job}/> */}
+      {/* <Hooks /> */}
+      <Todos/>
+      
     </div>
+    
+
   );
 }
 
