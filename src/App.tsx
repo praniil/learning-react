@@ -12,6 +12,7 @@ import UseEffectWindow from './UseEffectWindow';
 import TicTacToe from './tictactoe';
 import PhotoGallery from './PhotoGallery';
 import UseRefrence from './UseMemo';
+import StopWatch from './StopWatch';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
       <TicTacToe/>
       <PhotoGallery /> */}
       <UseRefrence/>
+      <StopWatch/>
     </div>
     
 
