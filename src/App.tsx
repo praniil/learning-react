@@ -50,10 +50,10 @@ function App() {
       <Todos/>
       <UseEffectHook/>
       <UseEffectWindow/>
-      <TicTacToe/>
-      <PhotoGallery /> */}
-      <UseRefrence/>
+      <TicTacToe/> */}
+      {/* <UseRefrence/> */}
       <StopWatch/>
+      <PhotoGallery />
     </div>
     
 

@@ -30,6 +30,9 @@ const StopWatch = () => {
         <div>Time Elapsed : {timing.toFixed(3)}</div>
       <button onClick={handleStart}> Start </button>
       <button onClick={handleStop}> Stop </button>
+      <button onClick={()=> {
+        setStartTime(null)
+      }}> Reset </button>
     </div>
   )
 }
