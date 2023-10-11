@@ -1,39 +1,35 @@
 import React, { useRef, useState } from 'react'
+import { start } from 'repl';
 
 const StopWatch = () => {
-    const [startTime, setStartTime] = useState<number | null>(null)
-    const [now, setNow] = useState<number | null>(null)
-    const intervalRef = useRef<NodeJS.Timeout | null>(null)
-
-    function handleStart () {
+    const [startTime, setStartTime] = useState <number | null>(null)
+    const [ now, setNow ] = useState <number | null> (null);
+    const refrenceInterval = useRef<NodeJS.Timeout| null>(null)
+    function handleStart() {
         setStartTime(Date.now())
-        setNow(Date.now())
-        if(intervalRef.current){
-            clearInterval(intervalRef.current);
+        if(refrenceInterval.current){
+            clearInterval(refrenceInterval.current);
         }
-        intervalRef.current = setInterval(()=> {
-            setNow(Date.now());
-        }, 10);     //new interval updates the now state every 10 milisecond
+        refrenceInterval.current = setInterval(()=>{
+            setNow(Date.now())
+        }, 10) //in the interval of 10 seconds refrenceInterval now is set to Date.now() using setNow
+    }
+    function handleStop () {
+        if(refrenceInterval.current){
 
+            clearInterval(refrenceInterval.current);
+        }
     }
 
     let timing = 0;
-    if (startTime != null && now != null) {
-        timing = (now - startTime) / 1000;
-    }
-
-    function handleStop () {
-        if(intervalRef.current){
-            clearInterval(intervalRef.current);
-        }
-        
+    if(startTime !== null && now !== null) {
+        timing = ( now - startTime) / 1000;
     }
   return (
     <div>
-       <div>TimePassed : {timing.toFixed(3)}</div> 
-      <button onClick={handleStart}>Start</button>
-      <button onClick={handleStop}>Stop</button>
-
+        <div>Time Elapsed : {timing.toFixed(3)}</div>
+      <button onClick={handleStart}> Start </button>
+      <button onClick={handleStop}> Stop </button>
     </div>
   )
 }
