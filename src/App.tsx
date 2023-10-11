@@ -9,10 +9,13 @@ import Hooks from './Hooks';
 import Todos from './todos';
 import UseEffectHook from './UseEffectHook';
 import UseEffectWindow from './UseEffectWindow';
+import TicTacToe from './tictactoe';
+import PhotoGallery from './PhotoGallery';
+import UseRefrence from './UseMemo';
 
 
 function App() {
-  // let content;
+  let content;
   // const[isLoggedIn, setisLoggedIn] = useState(true);
   // if (isLoggedIn) {
   //   content = <PhotoArray />
@@ -43,10 +46,12 @@ function App() {
        {/* <Props name = {UserObj.name}
       job = {UserObj.job}/>
        <Hooks />
-      <Todos/> */}
-      {/* <UseEffectHook/> */}
+      <Todos/>
+      <UseEffectHook/>
       <UseEffectWindow/>
-      
+      <TicTacToe/>
+      <PhotoGallery /> */}
+      <UseRefrence/>
     </div>
     
 
