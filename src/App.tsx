@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PhotoArray from './photosArray';
-import DisplayData from './displayData';
-import RespondingToEvents from './RespondingToEvents';
-import Props from './Props';
-import Hooks from './Hooks';
-import Todos from './todos';
-import UseEffectHook from './UseEffectHook';
-import UseEffectWindow from './UseEffectWindow';
+import PhotoArray from './Basics/photosArray';
+import DisplayData from './Basics/displayData';
+import RespondingToEvents from './Basics/RespondingToEvents';
+import Props from './Basics/Props';
+import Hooks from './Basics/Hooks';
+import Todos from './Todos/todos';
+import UseEffectHook from './useEffect/UseEffectHook';
+import UseEffectWindow from './useEffect/UseEffectWindow';
 import TicTacToe from './tictactoe';
-import PhotoGallery from './PhotoGallery';
-import UseRefrence from './UseMemo';
-import StopWatch from './StopWatch';
+import PhotoGallery from './useRef/PhotoGallery';
+import UseRefrence from './useRef/UseMemo';
+import StopWatch from './useRef/StopWatch';
+import Focus from './useRef/Focus';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
       {/* <UseRefrence/> */}
       <StopWatch/>
       <PhotoGallery />
+      {/* <Focus /> */}
     </div>
     
 

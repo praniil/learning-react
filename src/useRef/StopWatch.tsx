@@ -16,7 +16,6 @@ const StopWatch = () => {
     }
     function handleStop () {
         if(refrenceInterval.current){
-
             clearInterval(refrenceInterval.current);
         }
     }
