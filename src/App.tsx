@@ -14,6 +14,8 @@ import PhotoGallery from './useRef/PhotoGallery';
 import UseRefrence from './useRef/UseMemo';
 import StopWatch from './useRef/StopWatch';
 import Focus from './useRef/Focus';
+import UseReducer from './useReducer/UseReducer';
+import SwitchCase from './useReducer/SwitchCase';
 
 
 function App() {
@@ -56,6 +58,8 @@ function App() {
       <StopWatch/>
       <PhotoGallery />
       {/* <Focus /> */}
+      {/* <UseReducer /> */}
+      <SwitchCase />
     </div>
     
 
