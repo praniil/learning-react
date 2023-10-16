@@ -17,6 +17,8 @@ import Focus from './useRef/Focus';
 import UseReducer from './useReducer/UseReducer';
 import SwitchCase from './useReducer/SwitchCase';
 import Home from './ShoppingCart/Home';
+import { BrowserRouter, Router, Routes, Route } from 'react-router-dom'
+import Cart from './ShoppingCart/cart';
 
 
 
@@ -63,7 +65,12 @@ function App() {
       {/* <UseReducer /> */}
       {/* <SwitchCase /> */}
       {/* <ImprovedTodolist /> */}
-      <Home />
+      <BrowserRouter>
+      <Routes>
+      <Route path = '/Home' element = {<Home/>} />
+      <Route path = '/Cart' element = {<Cart/>}/>
+      </Routes>
+      </BrowserRouter>
 
     </div>
     

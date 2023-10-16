@@ -82,11 +82,16 @@ const Home = () => {
             {productArray.map((photo, index) => (
               <div className="ProductItem" key={index}>
                 <img className="productArray" src={photo.url} alt="" />
+                <p>
                 Name : {photo.name}
+                </p>
+                <p>
                 <button onClick={() => handleIncrease(photo.name)}>Add to Cart</button>
+                </p>
                 <button onClick={() => handleDecrease(photo.name)}> - </button>
                 {count[photo.name]}
                 <button onClick={() => handleIncrease(photo.name)}> + </button>
+                
               </div>
             ))}
           </div>
