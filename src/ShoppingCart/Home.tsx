@@ -9,7 +9,7 @@ import Samsung23 from "../Photos/samsung23.jpg";
 import "./Home.css";
 import { Interface } from "readline";
 import photosArray from "../Basics/photosArray";
-import Cart from "./cart"
+import Cart from "./cart";
 
 interface Product {
   url: string;
@@ -43,36 +43,57 @@ export const productArray: Product[] = [
   },
 ];
 const Home = () => {
-    const [count, setCount] = useState<number>(0)
-    function handleCount () {
-        setCount(count + 1);
+  const [count, setCount] = useState<{[key : string]: number}>(
+    productArray.reduce((acc, product) => ({ ...acc, [product.name] : 0}), {})
+  );
+  const totalCount = Object.values(count).reduce((acc : any, count) => acc + count , 0)
+  
+    function handleIncrease(productName : string) {
+      
+      setCount((previousCount) => ({
+        ...previousCount,
+        [productName] : previousCount[productName] + 1
+      }))
     }
-    
+
+    function handleDecrease(productName : string) {
+      if(count[productName] > 0){
+        setCount((previousCount) => ({
+          ...previousCount,
+          [productName] : previousCount[productName] - 1
+        }))
+      }
+    }
+
+
   return (
     <div className="Parent">
       <div>
         <section>
           <nav className="NavBar">
-            <img src={CartImage} alt="CartImage" className="CartImage"/>
-            <div className="NumberDiv">{count}</div>
+            <div className="CartComponents">
+              <img src={CartImage} alt="CartImage" className="CartImage" />
+              <div className="NumberDiv">{totalCount}</div>
+            </div>
           </nav>
         </section>
         <section>
           <div className="Product">
             {productArray.map((photo, index) => (
               <div className="ProductItem" key={index}>
-                <p>
-                  <img className="productArray" src={photo.url} alt="" />
-                </p>
-                <p> Name : {photo.name} </p>
-                <button onClick={handleCount}>Add to Cart</button>
+                <img className="productArray" src={photo.url} alt="" />
+                Name : {photo.name}
+                <button onClick={() => handleIncrease(photo.name)}>Add to Cart</button>
+                <button onClick={() => handleDecrease(photo.name)}> - </button>
+                {count[photo.name]}
+                <button onClick={() => handleIncrease(photo.name)}> + </button>
               </div>
             ))}
           </div>
         </section>
       </div>
       <div>
-        <Cart/>
+        <Cart />
       </div>
     </div>
   );
