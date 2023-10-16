@@ -16,6 +16,8 @@ import StopWatch from './useRef/StopWatch';
 import Focus from './useRef/Focus';
 import UseReducer from './useReducer/UseReducer';
 import SwitchCase from './useReducer/SwitchCase';
+import Home from './ShoppingCart/Home';
+
 
 
 function App() {
@@ -55,11 +57,14 @@ function App() {
       <UseEffectWindow/>
       <TicTacToe/> */}
       {/* <UseRefrence/> */}
-      <StopWatch/>
-      <PhotoGallery />
+      {/* <StopWatch/> */}
+      {/* <PhotoGallery /> */}
       {/* <Focus /> */}
       {/* <UseReducer /> */}
-      <SwitchCase />
+      {/* <SwitchCase /> */}
+      {/* <ImprovedTodolist /> */}
+      <Home />
+
     </div>
     
 

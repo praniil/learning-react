@@ -1,0 +1,19 @@
+.NavBar{
+    display: flex;
+}
+.CartImage{
+    /* display: flex; */
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.NumberDiv{
+    position: absolute;
+    top : 6%;
+    left : 6%;
+    font-size: 30px;
+}
+
+.productArray{
+    height: 100px;
+}
