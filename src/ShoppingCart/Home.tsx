@@ -7,11 +7,11 @@ import Samfold from "../Photos/samfold.jpg";
 import Samsung7 from "../Photos/samsung7.jpg";
 import Samsung23 from "../Photos/samsung23.jpg";
 import "./Home.css";
-import { Interface } from "readline";
-import photosArray from "../Basics/photosArray";
 import Cart from "./cart";
+import photosArray from "../Basics/photosArray";
+import { Link } from "react-router-dom";
 
-interface Product {
+export interface Product {
   url: string;
   name: string;
 }
@@ -48,22 +48,30 @@ const Home = () => {
   );
   const totalCount = Object.values(count).reduce((acc : any, count) => acc + count , 0)
   
-    function handleIncrease(productName : string) {
-      
+  function handleIncrease(productName : string) {
+    
+    setCount((previousCount) => ({
+      ...previousCount,
+      [productName] : previousCount[productName] + 1
+    }))
+  }
+  
+  function handleDecrease(productName : string) {
+    if(count[productName] > 0){
       setCount((previousCount) => ({
         ...previousCount,
-        [productName] : previousCount[productName] + 1
+        [productName] : previousCount[productName] - 1
       }))
     }
-
-    function handleDecrease(productName : string) {
-      if(count[productName] > 0){
-        setCount((previousCount) => ({
-          ...previousCount,
-          [productName] : previousCount[productName] - 1
-        }))
-      }
+  }
+  
+  const [selectedProducts, setSelectedProducts] = useState<Product[]>([])
+  function addToSelectedProducts ( productName : string ) {
+    const productToAdd = productArray.find((product) => product.name === productName);
+    if (productToAdd) {
+      setSelectedProducts([...selectedProducts, productToAdd])
     }
+  } 
 
 
   return (
@@ -72,7 +80,8 @@ const Home = () => {
         <section>
           <nav className="NavBar">
             <div className="CartComponents">
-              <img src={CartImage} alt="CartImage" className="CartImage" />
+
+              <Link to="/Cart"><img src={CartImage} alt="CartImage" className="CartImage" /></Link>
               <div className="NumberDiv">{totalCount}</div>
             </div>
           </nav>
@@ -86,7 +95,7 @@ const Home = () => {
                 Name : {photo.name}
                 </p>
                 <p>
-                <button onClick={() => handleIncrease(photo.name)}>Add to Cart</button>
+                <button onClick={() => {handleIncrease(photo.name); addToSelectedProducts(photo.name);}}>Add to Cart</button>
                 </p>
                 <button onClick={() => handleDecrease(photo.name)}> - </button>
                 {count[photo.name]}
@@ -98,7 +107,7 @@ const Home = () => {
         </section>
       </div>
       <div>
-        <Cart />
+        <Cart products = {selectedProducts}  />
       </div>
     </div>
   );

@@ -1,12 +1,21 @@
-import React from 'react'
-import {productArray} from "./Home"
+import React from "react";
+import { Product } from "./Home";
 
-const Cart = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+interface CartProps {
+  products: Product[];
 }
 
-export default Cart
+const Cart: React.FC<CartProps> = ({ products}) => {
+  return (
+    <div>
+      {products.map((product) => (
+        <li key={product.name}>
+          <img src={product.url} alt="" />
+          Name : {product.name}          
+        </li>
+      ))}
+    </div>
+  );
+};
+
+export default Cart;

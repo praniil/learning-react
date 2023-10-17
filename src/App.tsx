@@ -19,6 +19,8 @@ import SwitchCase from './useReducer/SwitchCase';
 import Home from './ShoppingCart/Home';
 import { BrowserRouter, Router, Routes, Route } from 'react-router-dom'
 import Cart from './ShoppingCart/cart';
+import {Product} from "./ShoppingCart/Home"
+
 
 
 
@@ -42,6 +44,7 @@ function App() {
   // }
 
 
+  const [selectedProducts, setSelectedProducts] = useState<Product[]>([])
   return (
     <div>
       {/* {content}
@@ -67,8 +70,8 @@ function App() {
       {/* <ImprovedTodolist /> */}
       <BrowserRouter>
       <Routes>
-      <Route path = '/Home' element = {<Home/>} />
-      <Route path = '/Cart' element = {<Cart/>}/>
+      <Route path = '/' element = {<Home/>} />
+      <Route path = '/Cart' element = {<Cart products={selectedProducts}/>}/>
       </Routes>
       </BrowserRouter>
 
